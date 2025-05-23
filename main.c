@@ -84,9 +84,36 @@ void test_ps_rotate(t_stack **a, t_stack **b)
         print_stack(*b);
 
         printf("------------------  ------------------  \n");
-
 }
 
+void test_ps_revrse_rotate(t_stack **a, t_stack **b)
+{
+        printf("------------------ PS_ROTATE ------------------  \n");
+        printf("Before ra: \n");
+        print_stack(*a);
+
+        rra(a);
+        printf("After ra: \n");
+        print_stack(*a);
+
+        printf("Before rrb: \n");
+        print_stack(*b);
+
+        rrb(b);
+        printf("After rb: \n");
+        print_stack(*b);
+
+        printf("Before rr: \n");
+        print_stack(*a);
+        print_stack(*b);
+
+        rrr(a,b);
+        printf("After rr: \n");
+        print_stack(*a);
+        print_stack(*b);
+
+        printf("------------------  ------------------  \n");
+}
 
 int main(void) {
     t_stack *a, *b, *c, *d, *e, *f, *m, *n;
@@ -126,8 +153,10 @@ int main(void) {
     //test_ps_push(&stack_a,&stack_b);
 
     //test 3 : rotate
-    //test_ps_rotate(&stack_a,&stack_b);
+    // test_ps_rotate(&stack_a,&stack_b);
 
+    //test 4 : reverse rotate
+    // test_ps_revrse_rotate(&stack_a,&stack_b);
 
    
 

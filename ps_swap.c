@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:17:25 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/23 12:35:52 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/05/23 15:26:27 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ void	swap(t_stack **head)
 	first = *head;
 	second = first->next;
 	third = second->next;
-	
 	second->prev = NULL;
 	second->next = first;
-	
 	first->prev = second;
 	first->next = third;
 	if (third)
@@ -34,22 +32,21 @@ void	swap(t_stack **head)
 	*head = second;
 }
 
-void sa(t_stack **a)
+void	sa(t_stack **a)
 {
-    swap(a);
-    write(1,"sa\n", 3);
+	swap(a);
+	write(1, "sa\n", 3);
 }
 
-void sb(t_stack **b)
+void	sb(t_stack **b)
 {
-    swap(b);
-    write(1,"sb\n", 3);
-}
-void ss(t_stack **a, t_stack **b)
-{
-    swap(a);
-    swap(b);
-    write(1,"ss\n", 3);
+	swap(b);
+	write(1, "sb\n", 3);
 }
 
-
+void	ss(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
+}
