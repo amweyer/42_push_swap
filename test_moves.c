@@ -6,7 +6,7 @@
 /*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:53:53 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/27 11:53:58 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/27 11:58:58 by amayaweyer       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ int main(void) {
     // test_ps_rotate(&stack_a,&stack_b);
 
     //test 4 : reverse rotate
-    // test_ps_revrse_rotate(&stack_a,&stack_b);
+    test_ps_revrse_rotate(&stack_a,&stack_b);
 
    
 
