@@ -6,14 +6,14 @@
 /*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/27 12:02:58 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/27 12:04:23 by amayaweyer       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int main(int ac, char **av)
-// {
-//     printf("Hello World");
-//     return(1);
-// }
+int main(int ac, char **av)
+{
+    printf("Hello World");
+    return(1);
+}
