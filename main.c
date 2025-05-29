@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/27 12:18:55 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/29 14:51:37 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int main(int ac, char **av)
 {
     char **argv;
     
-    if(ac == 2)
+    if(ac == 2 && av[1])
         argv = ft_split(av, ' ');
-    init_stack(argv);        
+    init_stack(argv);     
+    // ft_printf("test");
         
     return(1);
 }

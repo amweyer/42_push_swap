@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:53:53 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/27 11:58:58 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/29 13:32:09 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,104 +25,104 @@ t_stack *new_node(int nb) {
 
 void print_stack(t_stack *head) {
     while (head) {
-        printf("%d ", head->nb);
+        ft_printf("%d ", head->nb);
         head = head->next;
     }
-    printf("\n");
+    ft_printf("\n");
 }
 
 void test_ps_swap(t_stack **head)
 {
-    printf("------------------ PS_SWAP ------------------  \n");
-    printf("Before swap: ");
+    ft_printf("------------------ PS_SWAP ------------------  \n");
+    ft_printf("Before swap: ");
     print_stack(*head);
 
     swap(head);
 
-    printf("After swap:  ");
+    ft_printf("After swap:  ");
     print_stack(*head);
-    printf("------------------  ------------------  \n");
+    ft_printf("------------------  ------------------  \n");
 
 }
 
 
 void test_ps_push(t_stack **a, t_stack **b)
 {
-        printf("------------------ PS_PUSH ------------------  \n");
-        printf("Before pa: \n");
+        ft_printf("------------------ PS_PUSH ------------------  \n");
+        ft_printf("Before pa: \n");
         print_stack(*a);
         print_stack(*b);
 
         pa(a,b);
-        printf("After pa: \n");
+        ft_printf("After pa: \n");
         print_stack(*a);
         print_stack(*b);
 
         pb(a,b);
-        printf("After pb: \n");
+        ft_printf("After pb: \n");
         print_stack(*a);
         print_stack(*b);
 
-        printf("------------------  ------------------  \n");
+        ft_printf("------------------  ------------------  \n");
 
 }
 
 void test_ps_rotate(t_stack **a, t_stack **b)
 {
-        printf("------------------ PS_ROTATE ------------------  \n");
-        printf("Before ra: \n");
+        ft_printf("------------------ PS_ROTATE ------------------  \n");
+        ft_printf("Before ra: \n");
         print_stack(*a);
 
         ra(a);
-        printf("After ra: \n");
+        ft_printf("After ra: \n");
         print_stack(*a);
 
-        printf("Before rb: \n");
+        ft_printf("Before rb: \n");
         print_stack(*b);
 
         ra(b);
-        printf("After rb: \n");
+        ft_printf("After rb: \n");
         print_stack(*b);
 
-        printf("Before rr: \n");
+        ft_printf("Before rr: \n");
         print_stack(*a);
         print_stack(*b);
 
         rr(a,b);
-        printf("After rr: \n");
+        ft_printf("After rr: \n");
         print_stack(*a);
         print_stack(*b);
 
-        printf("------------------  ------------------  \n");
+        ft_printf("------------------  ------------------  \n");
 }
 
 void test_ps_revrse_rotate(t_stack **a, t_stack **b)
 {
-        printf("------------------ PS_ROTATE ------------------  \n");
-        printf("Before ra: \n");
+        ft_printf("------------------ PS_ROTATE ------------------  \n");
+        ft_printf("Before ra: \n");
         print_stack(*a);
 
         rra(a);
-        printf("After ra: \n");
+        ft_printf("After ra: \n");
         print_stack(*a);
 
-        printf("Before rrb: \n");
+        ft_printf("Before rrb: \n");
         print_stack(*b);
 
         rrb(b);
-        printf("After rb: \n");
+        ft_printf("After rb: \n");
         print_stack(*b);
 
-        printf("Before rr: \n");
+        ft_printf("Before rr: \n");
         print_stack(*a);
         print_stack(*b);
 
         rrr(a,b);
-        printf("After rr: \n");
+        ft_printf("After rr: \n");
         print_stack(*a);
         print_stack(*b);
 
-        printf("------------------  ------------------  \n");
+        ft_printf("------------------  ------------------  \n");
 }
 
 int main(void) {

@@ -6,16 +6,16 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/23 15:21:47 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/05/29 13:31:10 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// #include "libft.h"
-// #include "ft_printf.h"
-# include <stdio.h>
+#include "libft/libft.h"
+#include "printf/ft_printf.h"
+// # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
