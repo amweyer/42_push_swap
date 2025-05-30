@@ -1,31 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 11:55:20 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/30 11:23:43 by amayaweyer       ###   ########.fr       */
+/*   Created: 2025/05/30 11:25:41 by amayaweyer        #+#    #+#             */
+/*   Updated: 2025/05/30 11:26:19 by amayaweyer       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-//ft_atol 
-
-void init_stack(t_stack **a, char **av)
-{
-    int i;
-
-    i = 0;
-    while(av[i])
-    {
-        if(ft_check_errors(av[i]))
-        {
-            //free(stask)
-            return;
-        }
-    }
-}
+void add_node(t_stack **a, )
