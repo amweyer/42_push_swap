@@ -6,13 +6,13 @@
 /*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:59:14 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/30 11:40:26 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/30 11:45:20 by amayaweyer       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_synthax(char *arg)
+int	check_error_synthax(char *arg)
 {
     int i;
 
@@ -28,7 +28,7 @@ int	ft_check_synthax(char *arg)
     return(0);
 }
 
-int	ft_check_duplicates(t_stack **a, int n)
+int	check_error_duplicates(t_stack **a, int n)
 {
 	if (!a)
 		return (1);
@@ -39,12 +39,4 @@ int	ft_check_duplicates(t_stack **a, int n)
 		a = a->next;
 	}
 	return (0);
-}
-
-int	ft_check_errors(char *arg)
-{
-	if(ft_check_duplicates(arg))
-	    return(1);
-	if(ft_check_synthax(arg))
-	    return(1);
 }
