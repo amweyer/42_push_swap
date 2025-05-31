@@ -6,7 +6,7 @@
 /*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/30 11:59:38 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/30 12:51:55 by amayaweyer       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 // # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 typedef struct s_stack
 {

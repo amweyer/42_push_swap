@@ -6,7 +6,7 @@
 /*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 11:25:41 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/30 12:33:29 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/30 12:43:08 by amayaweyer       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,6 @@ long	atol(const char *nptr)
 }
 
 void	add_node(t_stack **a, int n)
+{
+    
+}

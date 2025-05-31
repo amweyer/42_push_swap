@@ -6,14 +6,12 @@
 /*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:55:20 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/30 11:23:43 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/05/31 13:21:09 by amayaweyer       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-//ft_atol 
 
 void init_stack(t_stack **a, char **av)
 {
@@ -22,10 +20,12 @@ void init_stack(t_stack **a, char **av)
     i = 0;
     while(av[i])
     {
-        if(ft_check_errors(av[i]))
+        if(ft_check_errors(a, av[i]))
         {
-            //free(stask)
+            free_errors(a);
             return;
         }
+        add_node(a, av);
+        i++;
     }
 }
