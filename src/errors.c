@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amayaweyer <amayaweyer@student.42.fr>      +#+  +:+       +#+        */
+/*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:59:14 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/05/31 13:20:33 by amayaweyer       ###   ########.fr       */
+/*   Updated: 2025/06/07 15:53:56 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	check_error_synthax(char *arg)
 	return (0);
 }
 
-int	check_is_int(char **arg)
+int	check_is_int(char *arg)
 {
 	long	n;
 
-	n = atol(arg);
+	n = ft_atol(arg);
 	if (n < INT_MIN || n > INT_MAX)
 		return (1);
 	return (0);
@@ -41,15 +41,17 @@ int	check_is_int(char **arg)
 int	check_error_duplicates(t_stack **a, char *arg)
 {
 	long	n;
+	t_stack *tmp;
 
-	if (!a || !*a)
+	if (!a || !*a || !arg)
 		return (1);
 	n = atol(arg);
-	while (a->next)
+	tmp = *a;
+	while (tmp->next)
 	{
-		if (a->nb == n)
+		if (tmp->nb == n)
 			return (1);
-		a = a->next;
+		tmp = tmp->next;
 	}
 	return (0);
 }

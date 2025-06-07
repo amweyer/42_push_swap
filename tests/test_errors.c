@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   test_errors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 11:55:20 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/07 16:34:03 by amweyer          ###   ########.fr       */
+/*   Created: 2025/06/07 15:59:21 by amweyer           #+#    #+#             */
+/*   Updated: 2025/06/07 16:01:50 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void init_stack(t_stack **a, char **av)
+int ft_test_errors(void)
 {
-    int i;
+    t_stack **a;
+    char arg[10]="12";
+    
+    
+    ft_printf(check_errors(a,arg));
 
-    i = 0;
-    while(av[i])
-    {
-        if(check_errors(a, av[i]))
-        {
-            free_errors(a);
-            return;
-        }
-        add_node(a, ft_atol(av[i]));
-        i++;
-    }
 }
