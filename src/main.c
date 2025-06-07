@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/07 17:14:03 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/07 18:18:25 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,31 @@
 
 int main(int ac, char **av)
 {
-    t_stack **a;
-    t_stack **b;
+    t_stack *a;
+    t_stack *b;
+    int      start;
         
     a = NULL;
     b = NULL;
+    start = 1;
 
-    DEBUG_PRINT(" --------- Starts ------- \n");
-    ft_printf("pas debug\n");
+    DEBUG_PRINT(" --------- START ------- \n");
 	if ((ac == 1) || (ac == 2 && !av[1][0]))
+    {
+        DEBUG_PRINT(" ENTRE ERREUR \n");
         return(1);
+    }
     if(ac == 2 && av[1])
+    {
         av = ft_split(av[1], ' ');
-    init_stack(a,av);   
-    show_nodes(*a);
+        start = 0;
+    }
+    init_stack(&a,av, start);   
+    DEBUG_PRINT(" --------- After stack init ------- \n");
+    
+    show_nodes(a);
+
+    DEBUG_PRINT(" --------- FINISH ------- \n");
 
     //verifier si liste deja triee
     //verifier si moins de 3 arg

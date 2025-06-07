@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/07 17:13:44 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/07 18:17:03 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,57 +23,58 @@
 # define INT_MAX 2147483647
 
 /* debug macro */
-# define DEBUG 0
+# define DEBUG 1
 
 # if DEBUG == 1
-#  define DEBUG_PRINT(fmt, ...) \
-	ft_printf("[DEBUG] %s:%d: " fmt "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+#  define DEBUG_PRINT(fmt, ...) ft_printf("[DEBUG] %s:%d: " fmt "\n", __FILE__,__LINE__, ##__VA_ARGS__)
 # else
-#  define DEBUG_PRINT(fmt, ...) do {} while (0)
+#  define DEBUG_PRINT(fmt, ...) \
+	do                        \
+	{                         \
+	} while (0)
 # endif
 
-
 typedef struct s_stack
-{
-	int				nb;
-	int				index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}					t_stack;
+	{
+		int				nb;
+		int				index;
+		struct s_stack	*next;
+		struct s_stack	*prev;
+	} t_stack;
 
-void				swap(t_stack **head);
-void				sa(t_stack **a);
-void				sb(t_stack **b);
-void				ss(t_stack **a, t_stack **b);
+	void swap(t_stack **head);
+	void sa(t_stack **a);
+	void sb(t_stack **b);
+	void ss(t_stack **a, t_stack **b);
 
-void				push(t_stack **head_src, t_stack **head_dst);
-void				pa(t_stack **a, t_stack **b);
-void				pb(t_stack **a, t_stack **b);
+	void push(t_stack **head_src, t_stack **head_dst);
+	void pa(t_stack **a, t_stack **b);
+	void pb(t_stack **a, t_stack **b);
 
-void				rotate(t_stack **head);
-void				ra(t_stack **a);
-void				rb(t_stack **b);
-void				rr(t_stack **a, t_stack **b);
+	void rotate(t_stack **head);
+	void ra(t_stack **a);
+	void rb(t_stack **b);
+	void rr(t_stack **a, t_stack **b);
 
-void				rrotate(t_stack **head);
-void				rra(t_stack **a);
-void				rrb(t_stack **b);
-void				rrr(t_stack **a, t_stack **b);
+	void rrotate(t_stack **head);
+	void rra(t_stack **a);
+	void rrb(t_stack **b);
+	void rrr(t_stack **a, t_stack **b);
 
-/* parsing.c */
-void				init_stack(t_stack **a, char **av);
+	/* parsing.c */
+	void init_stack(t_stack **a, char **av, int start);
 
-/* errors.c */
-int					check_error_synthax(char *arg);
-int					check_is_int(char *arg);
-int					check_error_duplicates(t_stack **a, char *arg);
-int					check_errors(t_stack **a, char *arg);
-void				free_stack(t_stack **stack);
-void				free_errors(t_stack **a);
+	/* errors.c */
+	int check_error_synthax(char *arg);
+	int check_is_int(char *arg);
+	int check_error_duplicates(t_stack **a, char *arg);
+	int check_errors(t_stack **a, char *arg);
+	void free_stack(t_stack **stack);
+	void free_errors(t_stack **a);
 
-/* utils.c */
-long				ft_atol(char *arg);
-void				add_node(t_stack **a, int n);
-void				show_nodes(t_stack *a);
+	/* utils.c */
+	long ft_atol(char *arg);
+	void add_node(t_stack **a, int n);
+	void show_nodes(t_stack *a);
 
 #endif

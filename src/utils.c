@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 11:25:41 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/07 16:57:28 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/07 17:44:24 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,11 @@ void	add_node(t_stack **a, int n)
 
 void	show_nodes(t_stack *stack)
 {
+	DEBUG_PRINT("enter show nodes");
+
 	if (!stack)
 		return ;
+	DEBUG_PRINT("enter show nodes");
 	while (stack)
 	{
 		ft_printf("%d\n", stack->nb);
