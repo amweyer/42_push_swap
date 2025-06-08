@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:59:14 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/07 17:48:15 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/08 12:56:37 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	check_is_int(char *arg)
 int	check_error_duplicates(t_stack **a, char *arg)
 {
 	long	n;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!arg)
 		return (1);
-	if(!a || !*a)
-		return(0);
+	if (!a || !*a)
+		return (0);
 	n = atol(arg);
 	tmp = *a;
 	while (tmp)
@@ -60,7 +60,7 @@ int	check_error_duplicates(t_stack **a, char *arg)
 
 int	check_errors(t_stack **a, char *arg)
 {
-	//DEBUG_PRINT("Enter : check_errors");
+	// DEBUG_PRINT("Enter : check_errors");
 	if (!arg)
 	{
 		DEBUG_PRINT("Errror from: 0");
@@ -70,11 +70,12 @@ int	check_errors(t_stack **a, char *arg)
 	{
 		DEBUG_PRINT("Errror from: 1");
 		return (1);
-	}	if (check_is_int(arg))
+	}
+	if (check_is_int(arg))
 	{
 		DEBUG_PRINT("Errror from: 2");
 		return (1);
-	}	
+	}
 	if (check_error_duplicates(a, arg))
 	{
 		DEBUG_PRINT("Errror from: 3");

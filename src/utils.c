@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 11:25:41 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/07 17:44:24 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/08 13:08:47 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,40 +37,48 @@ long	ft_atol(char *arg)
 	return (nb * neg);
 }
 
-void	add_node(t_stack **a, int n)
+int	get_stack_size(t_stack *stack)
 {
-	t_stack	*new_block;
-	t_stack	*tmp;
+	int	nb;
 
-	new_block = malloc(sizeof(t_stack));
-	if (!a || !new_block)
-		return ;
-	new_block->nb = n;
-	new_block->index = 0;
-	new_block->next = NULL;
-	new_block->prev = NULL;
-	if (!*a)
-		*a = new_block;
-	else
-	{
-		tmp = *a;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new_block;
-		new_block->prev = tmp;
-	}
-}
-
-void	show_nodes(t_stack *stack)
-{
-	DEBUG_PRINT("enter show nodes");
-
-	if (!stack)
-		return ;
-	DEBUG_PRINT("enter show nodes");
+	nb = 0;
 	while (stack)
 	{
-		ft_printf("%d\n", stack->nb);
+		stack = stack->next;
+		nb++;
+	}
+	return (nb);
+}
+
+t_stack	*get_max_node(t_stack *stack)
+{
+	t_stack	*max_node;
+
+	if (!stack)
+		return (NULL);
+	max_node = stack;
+	while (stack)
+	{
+		if (stack->nb > max_node->nb)
+			max_node = stack;
 		stack = stack->next;
 	}
+	return (max_node);
 }
+
+t_stack	*get_min_node(t_stack *stack)
+{
+	t_stack	*min_node;
+
+	if (!stack)
+		return (NULL);
+	min_node = stack;
+	while (stack)
+	{
+		if (stack->nb < min_node->nb)
+			min_node = stack;
+		stack = stack->next;
+	}
+	return (min_node);
+}
+

@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/07 18:18:25 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/08 13:41:20 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,27 @@ int main(int ac, char **av)
     
     show_nodes(a);
 
+    if(is_sorted(a))
+    {
+        DEBUG_PRINT(" --------- Sorted ------- \n");
+        return(1);        
+    }
+
+    if(get_stack_size(a)<4)
+    {
+        DEBUG_PRINT(" --------- Less than 3 ------- \n");
+        sort_three(&a);
+        
+    }
+
+    DEBUG_PRINT("max nb node : %d\n" , get_max_node(a)->nb);
+    DEBUG_PRINT("max nb node : %d\n" , get_min_node(a)->nb);
+
+    show_nodes(a);
+
+
     DEBUG_PRINT(" --------- FINISH ------- \n");
 
-    //verifier si liste deja triee
     //verifier si moins de 3 arg
     //definir les target node pour chaque node
     //get the cost of each node to get to the target node

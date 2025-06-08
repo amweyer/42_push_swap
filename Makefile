@@ -6,7 +6,7 @@
 #    By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 15:01:22 by amweyer           #+#    #+#              #
-#    Updated: 2025/06/07 17:13:17 by amweyer          ###   ########.fr        #
+#    Updated: 2025/06/08 13:02:42 by amweyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC =  $(SRC_DIR)/main.c \
        $(SRC_DIR)/rotate.c \
        $(SRC_DIR)/rev_rotate.c \
        $(SRC_DIR)/swap.c \
-       $(SRC_DIR)/utils.c   
+       $(SRC_DIR)/utils.c  \
+       $(SRC_DIR)/sort.c   \
 
 
 # BONUS_SRC =  main.c \
