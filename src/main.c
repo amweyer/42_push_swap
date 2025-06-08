@@ -6,63 +6,71 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/08 14:02:52 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/08 16:00:40 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_stack *a;
-    t_stack *b;
-    int      start;
-        
-    a = NULL;
-    b = NULL;
-    start = 1;
+	t_stack *a;
+	t_stack *b;
+	int start;
 
-    DEBUG_PRINT(" --------- START ------- \n");
+	a = NULL;
+	b = NULL;
+	start = 1;
+
+	DEBUG_PRINT(" --------- START ------- \n");
 	if ((ac == 1) || (ac == 2 && !av[1][0]))
+	{
+		DEBUG_PRINT(" ENTRE ERREUR \n");
+		return (1);
+	}
+	if (ac == 2 && av[1])
+	{
+		av = ft_split(av[1], ' ');
+		start = 0;
+	}
+	init_stack(&a, av, start);
+
+	DEBUG_PRINT(" --------- A before ------- \n");
+	show_nodes(a);
+    DEBUG_PRINT(" --------- B before ------- \n");
+    show_nodes(b);
+
+	if (is_sorted(a))
+	{
+		DEBUG_PRINT(" --------- Sorted ------- \n");
+		return (1);
+	}
+
+    if(get_stack_size(a)>3)
     {
-        DEBUG_PRINT(" ENTRE ERREUR \n");
-        return(1);
+        pb(&a,&b);
+        pb(&a,&b);
     }
-    if(ac == 2 && av[1])
-    {
-        av = ft_split(av[1], ' ');
-        start = 0;
-    }
-    init_stack(&a,av, start);   
-    DEBUG_PRINT(" --------- After stack init ------- \n");
+
+    sort_three(&a);
+
+	// DEBUG_PRINT("max nb node : %d\n" , get_max_node(a)->nb);
+	// DEBUG_PRINT("max nb node : %d\n" , get_min_node(a)->nb);
     
-    show_nodes(a);
 
-    if(is_sorted(a))
-    {
-        DEBUG_PRINT(" --------- Sorted ------- \n");
-        return(1);        
-    }
+    
+	DEBUG_PRINT(" --------- A after ------- \n");
+	show_nodes(a);
+    DEBUG_PRINT(" --------- B after ------- \n");
+    show_nodes(b);
 
-    if(get_stack_size(a)<4)
-    {
-        DEBUG_PRINT(" --------- Less than 3 ------- \n");
-        sort_three(&a);
-        
-    }
+    
 
-    // DEBUG_PRINT("max nb node : %d\n" , get_max_node(a)->nb);
-    // DEBUG_PRINT("max nb node : %d\n" , get_min_node(a)->nb);
+	DEBUG_PRINT(" --------- FINISH ------- \n");
 
-    show_nodes(a);
+	// definir les target node pour chaque node
+	// get the cost of each node to get to the target node
+	// find the cheapest node
 
-
-    DEBUG_PRINT(" --------- FINISH ------- \n");
-
-    //verifier si moins de 3 arg
-    //definir les target node pour chaque node
-    //get the cost of each node to get to the target node
-    //find the cheapest node
-        
-    return(0);
+	return (0);
 }

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 12:28:57 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/08 18:37:47 by amweyer          ###   ########.fr       */
+/*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
+/*   Updated: 2025/06/08 18:45:36 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack **stack)
+void update_index(t_stack stack)
 {
-	t_stack *max_node;
-	t_stack *min_node;
-	if (!stack)
-		return ;
-	max_node = get_max_node(*stack);
-	min_node = get_min_node(*stack);
-	if (max_node == *stack)
-		ra(stack);
-	else if (max_node == (*stack)->next)
-		rra(stack);
-	if (min_node == (*stack)->next)
-		sa(stack);
+    
+}
+
+void update_cost(t_stack stack)
+{
+    
+}
+
+t_stack get_cheapest(t_stack stack)
+{
+    
 }
 

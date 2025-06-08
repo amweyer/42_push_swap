@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/08 13:54:50 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/08 18:31:20 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_stack
 {
 	int				nb;
 	int				index;
+	int 			cost;
+	struct s_stack	*target_node;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
