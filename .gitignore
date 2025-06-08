@@ -1,3 +1,8 @@
 # Ignorer les fichiers temporaires
 *.out
+
+# Ignorer le fichier README
 README
+
+# Ignorer le dossier obj et tout son contenu
+obj/

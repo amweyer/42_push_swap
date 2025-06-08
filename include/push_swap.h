@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/08 13:41:31 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/08 13:54:50 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define INT_MAX 2147483647
 
 /* debug macro */
-# define DEBUG 0
+# define DEBUG 1
 
 # if DEBUG == 1
 #  define DEBUG_PRINT(fmt, ...) ft_printf("[DEBUG] %s:%d: " fmt "\n", __FILE__,__LINE__, ##__VA_ARGS__)

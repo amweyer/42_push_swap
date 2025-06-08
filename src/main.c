@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/08 13:41:20 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/08 14:02:52 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int main(int ac, char **av)
         
     }
 
-    DEBUG_PRINT("max nb node : %d\n" , get_max_node(a)->nb);
-    DEBUG_PRINT("max nb node : %d\n" , get_min_node(a)->nb);
+    // DEBUG_PRINT("max nb node : %d\n" , get_max_node(a)->nb);
+    // DEBUG_PRINT("max nb node : %d\n" , get_min_node(a)->nb);
 
     show_nodes(a);
 
