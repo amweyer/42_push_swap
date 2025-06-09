@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/08 16:00:40 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:09:28 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ int	main(int ac, char **av)
 		return (1);
 	}
 
-    if(get_stack_size(a)>3)
+	while (get_stack_size(a)>3)
     {
         pb(&a,&b);
         pb(&a,&b);
+		
+		//sort_turk();
+		
     }
 
     sort_three(&a);

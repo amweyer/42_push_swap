@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 18:50:20 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/12 17:25:52 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:19:33 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[i])
 	{
-		if ((str[i] == '%') && (ft_strchr("cspdiuxX%%", str[i + 1])))
+		if ((str[i] == '%') && (ft_strchr_printf("cspdiuxX%%", str[i + 1])))
 		{
 			i++;
 			len += ft_dispatch(str[i], &args);
 		}
 		else
-			len += ft_putchar(str[i]);
+			len += ft_putchar_printf(str[i]);
 		i++;
 	}
 	va_end(args);

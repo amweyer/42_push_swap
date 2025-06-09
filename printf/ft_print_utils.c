@@ -6,13 +6,13 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:47:32 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/07 10:24:48 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:13:24 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen_printf(char *str)
 {
 	int	len;
 
@@ -22,14 +22,14 @@ int	ft_strlen(char *str)
 	return (len);
 }
 
-int	ft_putchar(char c)
+int	ft_putchar_printf(char c)
 {
 	if (write(1, &c, 1) == -1)
 		return (-1);
 	return (1);
 }
 
-int	ft_putstr(char *s)
+int	ft_putstr_printf(char *s)
 {
 	int	len;
 
@@ -51,7 +51,7 @@ int	ft_putstr(char *s)
 	}
 }
 
-int	ft_putnbr_b(int n, char *base)
+int	ft_putnbr_b_printf(int n, char *base)
 {
 	long	nb;
 	char	c;
@@ -60,30 +60,30 @@ int	ft_putnbr_b(int n, char *base)
 
 	nb = n;
 	len = 0;
-	len_base = ft_strlen(base);
+	len_base = ft_strlen_printf(base);
 	if (nb < 0)
 	{
-		len += ft_putchar('-');
+		len += ft_putchar_printf('-');
 		nb = -nb;
 	}
 	if (nb / len_base > 0)
-		len += ft_putnbr_b(nb / len_base, base);
+		len += ft_putnbr_b_printf(nb / len_base, base);
 	c = base[nb % len_base];
-	len += ft_putchar(c);
+	len += ft_putchar_printf(c);
 	return (len);
 }
 
-int	ft_putnbr_bu(unsigned long nb, char *base)
+int	ft_putnbr_bu_printf(unsigned long nb, char *base)
 {
 	char			c;
 	unsigned long	len_base;
 	int				len;
 
 	len = 0;
-	len_base = ft_strlen(base);
+	len_base = ft_strlen_printf(base);
 	c = base[nb % len_base];
 	if (nb / len_base > 0)
-		len += ft_putnbr_bu(nb / len_base, base);
-	len += ft_putchar(c);
+		len += ft_putnbr_bu_printf(nb / len_base, base);
+	len += ft_putchar_printf(c);
 	return (len);
 }

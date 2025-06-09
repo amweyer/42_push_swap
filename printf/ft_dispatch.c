@@ -6,23 +6,23 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 18:45:54 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/07 10:37:10 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 12:20:09 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_p(unsigned long ptr)
+int	ft_putnbr_p_printf(unsigned long ptr)
 {
 	int	l;
 
 	l = 0;
 	if (ptr == 0)
-		l += ft_putstr("(nil)");
+		l += ft_putstr_printf("(nil)");
 	else
 	{
-		l += ft_putstr("0x");
-		l += ft_putnbr_bu(ptr, "0123456789abcdef");
+		l += ft_putstr_printf("0x");
+		l += ft_putnbr_bu_printf(ptr, "0123456789abcdef");
 	}
 	return (l);
 }
@@ -33,25 +33,25 @@ int	ft_dispatch(char c, va_list *args)
 
 	l = 0;
 	if (c == '%')
-		l += ft_putchar('%');
+		l += ft_putchar_printf('%');
 	else if (c == 'c')
-		l += ft_putchar((char)va_arg(*args, int));
+		l += ft_putchar_printf((char)va_arg(*args, int));
 	else if (c == 's')
-		l += ft_putstr(va_arg(*args, char *));
+		l += ft_putstr_printf(va_arg(*args, char *));
 	else if (c == 'u')
-		l += ft_putnbr_bu(va_arg(*args, unsigned int), "0123456789");
+		l += ft_putnbr_bu_printf(va_arg(*args, unsigned int), "0123456789");
 	else if (c == 'x')
-		l += ft_putnbr_bu((unsigned int)va_arg(*args, int), "0123456789abcdef");
+		l += ft_putnbr_bu_printf((unsigned int)va_arg(*args, int), "0123456789abcdef");
 	else if (c == 'X')
-		l += ft_putnbr_bu((unsigned int)va_arg(*args, int), "0123456789ABCDEF");
+		l += ft_putnbr_bu_printf((unsigned int)va_arg(*args, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		l += ft_putnbr_b(va_arg(*args, int), "0123456789");
+		l += ft_putnbr_b_printf(va_arg(*args, int), "0123456789");
 	else if (c == 'p')
-		l += ft_printf_p((unsigned long)va_arg(*args, void *));
+		l += ft_putnbr_p_printf((unsigned long)va_arg(*args, void *));
 	return (l);
 }
 
-int	ft_strchr(const char *s, int c)
+int	ft_strchr_printf(const char *s, int c)
 {
 	int		i;
 	char	*s1;
