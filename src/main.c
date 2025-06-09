@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/09 12:09:28 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:17:21 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ int	main(int ac, char **av)
 
 	DEBUG_PRINT(" --------- A before ------- \n");
 	show_nodes(a);
+	DEBUG_PRINT(" --------------------- \n");
+
     DEBUG_PRINT(" --------- B before ------- \n");
     show_nodes(b);
+	DEBUG_PRINT(" --------------------- \n");
 
 	if (is_sorted(a))
 	{
@@ -46,12 +49,12 @@ int	main(int ac, char **av)
 		return (1);
 	}
 
-	while (get_stack_size(a)>3)
+	if (get_stack_size(a) > 3)
     {
         pb(&a,&b);
         pb(&a,&b);
 		
-		//sort_turk();
+		sort_turk(&a,&b);
 		
     }
 
@@ -64,10 +67,12 @@ int	main(int ac, char **av)
     
 	DEBUG_PRINT(" --------- A after ------- \n");
 	show_nodes(a);
+	DEBUG_PRINT(" --------------------- \n");
+
     DEBUG_PRINT(" --------- B after ------- \n");
     show_nodes(b);
+    DEBUG_PRINT(" --------------------- \n");
 
-    
 
 	DEBUG_PRINT(" --------- FINISH ------- \n");
 

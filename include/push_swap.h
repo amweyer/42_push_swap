@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/08 18:31:20 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:08:07 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "ft_printf.h"
 # include "libft.h"
-// # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <stdbool.h> 
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
@@ -86,5 +86,12 @@ t_stack				*get_min_node(t_stack *stack);
 
 /* sort.c */
 void	sort_three(t_stack **stack);
+void	sort_turk(t_stack **a, t_stack **b);
+
+/* sort_utils.c */
+void	get_closest(t_stack *node, t_stack **stack);
+void	set_target(t_stack **a, t_stack **b);
+
+
 
 #endif
