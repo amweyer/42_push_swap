@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/09 15:14:48 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 16:27:59 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 void	get_closest(t_stack *node, t_stack **stack)
 {
-    bool found;
-    t_stack *current_node;
+	bool	found;
+	t_stack	*current_node;
 
-    current_node = *stack;
-    found = 0;
-
-    while(current_node->next && !found)
-    {
-        if((node->nb > current_node->nb) && (node->nb < current_node->next->nb))
-        {
-            node->target_node = current_node;
-            found = 1;
-        }
-        current_node = current_node->next;
-    }
-    if(!found)
-        node->target_node =  get_max_node(*stack);
-
+	current_node = *stack;
+	found = 0;
+	while (current_node->next && !found)
+	{
+		if ((node->nb > current_node->nb)
+			&& (node->nb < current_node->next->nb))
+		{
+			node->target_node = current_node;
+			found = 1;
+		}
+		current_node = current_node->next;
+	}
+	if (!found)
+		node->target_node = get_max_node(*stack);
 }
 
 void	set_target(t_stack **a, t_stack **b)
@@ -43,21 +42,100 @@ void	set_target(t_stack **a, t_stack **b)
 	current_node = *a;
 	while (current_node)
 	{
-        get_closest(current_node, b);
-        DEBUG_PRINT("node:%d target :%d \n", current_node->nb, current_node->target_node->nb );
-        current_node = current_node->next;
-    }
+		get_closest(current_node, b);
+		//DEBUG_PRINT("node:%d target :%d \n", current_node->nb,current_node->target_node->nb);
+		current_node = current_node->next;
+	}
 }
 
-// void update_index(t_stack stack)
-// {
+void	update_index(t_stack **stack)
+{
+	int		index;
+	t_stack	*currrent_node;
 
+	index = 0;
+	currrent_node = *stack;
+	while (currrent_node)
+	{
+		currrent_node->index = index;
+		index++;
+		currrent_node = currrent_node->next;
+	}
+}
+
+int get_median(t_stack *stack)
+{
+    int i;
+
+    i = 0;
+    while(stack)
+    {
+        i++;
+        stack = stack->next;
+    }
+    return (i/2);
+}
+
+// void update_median(t_stack **stack)
+// {
+//     t_stack *current_node;
+//     int median;
+
+//     median = get_median(*stack);
+//     current_node = *stack;
+//     while(current_node)
+//     {
+//         current_node->median = median;
+//         current_node = current_node->next;
+//         DEBUG_PRINT("node:%d median :%d \n", current_node->nb, current_node->median);
+//     }    
 // }
 
-// void update_cost(t_stack stack)
+// void set_cost(t_stack **node)
 // {
+//     int cost;
+//     int index;
+//     int median_a;
+//     int median_b;
+    
+//     median_a = get_median
+//     DEBUG_PRINT("node:%d median :%d \n", current_node->nb, current_node->median);
 
+    
+    
 // }
+
+void update_cost(t_stack **a, t_stack **b)
+{
+    int median_a;
+    int median_b;
+    t_stack *current_a;
+    // t_stack *current_b;
+    
+
+    current_a = *a;
+    median_a = get_median(*a);
+    median_b = get_median(*b);
+        
+    DEBUG_PRINT("median A:%d median B:%d \n", median_a, median_b);
+    
+    // while (current_a)
+    // {
+    //     current_b = *b;
+    //     while(current_b)
+    //     {
+            
+    //         current_b=current_b->nb;
+            
+    //     }
+    //     current_a = current_a->next;
+    // }
+    
+    
+    
+    
+
+}
 
 // t_stack get_cheapest(t_stack stack)
 // {
