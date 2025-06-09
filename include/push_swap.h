@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/09 16:32:16 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/09 18:16:35 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 #include <stdbool.h> 
+
+#include <stdio.h>
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
