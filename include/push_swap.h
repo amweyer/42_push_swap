@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/09 18:16:35 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:31:28 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct s_stack
 	int				nb;
 	int				index;
 	int 			cost;
-	// int 			median;
+	int				size;
+	bool 			above_median;
 	struct s_stack	*target_node;
 	struct s_stack	*next;
 	struct s_stack	*prev;
@@ -82,7 +83,12 @@ void				free_errors(t_stack **a);
 
 /* utils.c */
 long				ft_atol(char *arg);
+int 				ft_max(int a, int b);
+int 				ft_min(int a, int b);
+
+/* stack_utils.c */
 int					get_stack_size(t_stack *stack);
+void				update_stack_size(t_stack **stack);
 t_stack				*get_max_node(t_stack *stack);
 t_stack				*get_min_node(t_stack *stack);
 

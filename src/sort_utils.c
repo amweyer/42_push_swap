@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/09 18:27:13 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:46:02 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	set_target(t_stack **a, t_stack **b)
 	while (current_node)
 	{
 		get_closest(current_node, b);
-		DEBUG_PRINT("node:%d target :%d \n", current_node->nb, current_node->target_node->nb);
+		//DEBUG_PRINT("node:%d target :%d \n", current_node->nb, current_node->target_node->nb);
 		current_node = current_node->next;
 	}
 }
@@ -80,54 +80,76 @@ int	get_median(t_stack *stack)
 	return (i / 2);
 }
 
-// void update_median(t_stack **stack)
-// {
-//     t_stack *current_node;
-//     int median;
+void update_median(t_stack **stack)
+{
+    t_stack *current_node;
+    int median;
 
-//     median = get_median(*stack);
-//     current_node = *stack;
-//     while(current_node)
-//     {
-//         current_node->median = median;
-//         current_node = current_node->next;
-//         DEBUG_PRINT("node:%d median :%d \n", current_node->nb,
-// current_node->median);
-//     }
-// }
+    median = get_median(*stack);
+    current_node = *stack;
+	DEBUG_PRINT("median :%d \n", median);
 
-// void set_cost(t_stack **node)
-// {
-//     int cost;
-//     int index;
-//     int median_a;
-//     int median_b;
+    while(current_node)
+    {
+		//DEBUG_PRINT("current_node->index  :%d \n", current_node->index );
 
-//     median_a = get_median
-//     DEBUG_PRINT("node:%d median :%d \n", current_node->nb , current_node->median);
+		if(current_node->index < median)
+        	current_node->above_median = true;
+        else
+			current_node->above_median = false;
+		
+		DEBUG_PRINT("node:%d above median :%d \n", current_node->nb, current_node->above_median);
 
-// }
+		current_node = current_node->next;
+    }
+		//DEBUG_PRINT("END");
+
+}
+
+int get_cost(t_stack *node)
+{
+	int cost_a;
+	int cost_b;
+	int cost;
+
+	cost = 1;
+	if(node->above_median)
+		cost_a = node->index;
+	else
+		cost_a = node->size - node->index;
+	
+	if(node->target_node->above_median)
+		cost_b = node->target_node->index;
+	else
+		cost_b = node->target_node->size - node->target_node->index;
+
+	if((node->target_node->above_median && !node->above_median)
+		|| !(node->target_node->above_median && node->above_median) )
+		cost += cost_a + cost_b;
+	else
+		cost += ft_max(cost_a,cost_b);
+	
+	return(cost);
+
+}
 
 void	update_cost(t_stack **a, t_stack **b)
 {
-	int		median_a;
-	int		median_b;
-	t_stack	*current_a;
-
-	// t_stack *current_b;
-	current_a = *a;
-	median_a = get_median(*a);
-	median_b = get_median(*b);
-	DEBUG_PRINT("median A:%d median B:%d \n", median_a, median_b);
-	// while (current_a)
-	// {
-	//     current_b = *b;
-	//     while(current_b)
-	//     {
-	//         current_b=current_b->nb;
-	//     }
-	//     current_a = current_a->next;
-	// }
+	t_stack *current_node;
+	
+	update_index(a);
+	update_index(b);
+	update_median(a);
+	update_median(b);
+	update_stack_size(a);
+	update_stack_size(b);
+	current_node = *a;
+	while(current_node)
+	{
+		current_node->cost = get_cost(current_node);
+		DEBUG_PRINT("node:%d cost:%d target:%d\n", current_node->nb , current_node->cost, current_node->target_node->nb);
+		current_node = current_node->next;
+	}
 }
 
 // t_stack get_cheapest(t_stack stack)

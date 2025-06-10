@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 12:28:57 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/09 16:31:38 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 14:55:17 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ void sort_turk(t_stack **a, t_stack **b, int stack_size)
 		DEBUG_PRINT(" --------------------- \n");
 
 		set_target(a,b);
-		update_index(a);
-		update_index(b);
 		update_cost(a,b);
 
 		pb(a,b);

@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:35:42 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/08 18:36:24 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 14:53:42 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ int	get_stack_size(t_stack *stack)
 		nb++;
 	}
 	return (nb);
+}
+void	update_stack_size(t_stack **stack)
+{
+	int		stack_size;
+	t_stack	*current;
+
+	stack_size = get_stack_size(*stack);
+	current = *stack;
+	while (current)
+	{
+		current->size = stack_size;
+		current = current->next;
+	}
 }
 
 t_stack	*get_max_node(t_stack *stack)

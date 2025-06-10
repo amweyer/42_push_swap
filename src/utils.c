@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 11:25:41 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/08 18:35:52 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:22:11 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,16 @@ long	ft_atol(char *arg)
 }
 
 
+int ft_max(int a, int b)
+{
+	if(a > b)
+		return(a);
+	return(b);
+}
 
+int ft_min(int a, int b)
+{
+	if(a < b)
+		return(a);
+	return(b);
+}
