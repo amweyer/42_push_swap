@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/10 14:49:11 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 16:05:04 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,9 @@ int	main(int ac, char **av)
 
 	DEBUG_PRINT(" --------- A before ------- \n");
 	show_nodes(a);
-	DEBUG_PRINT(" --------------------- \n");
 
     DEBUG_PRINT(" --------- B before ------- \n");
     show_nodes(b);
-	DEBUG_PRINT(" --------------------- \n");
 
 	if (is_sorted(a))
 	{

@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/10 15:46:02 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 16:23:30 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	get_closest(t_stack *node, t_stack **stack)
 	current_node = *stack;
 	found = 0;
 	min_diff = INT_MAX - INT_MIN;
-
 	while (current_node)
 	{
 		diff = node->nb - current_node->nb;
@@ -47,7 +46,8 @@ void	set_target(t_stack **a, t_stack **b)
 	while (current_node)
 	{
 		get_closest(current_node, b);
-		//DEBUG_PRINT("node:%d target :%d \n", current_node->nb, current_node->target_node->nb);
+		// DEBUG_PRINT("node:%d target :%d \n", current_node->nb,
+			//current_node->target_node->nb);
 		current_node = current_node->next;
 	}
 }
@@ -80,63 +80,54 @@ int	get_median(t_stack *stack)
 	return (i / 2);
 }
 
-void update_median(t_stack **stack)
+void	update_median(t_stack **stack)
 {
-    t_stack *current_node;
-    int median;
+	t_stack	*current_node;
+	int		median;
 
-    median = get_median(*stack);
-    current_node = *stack;
-	DEBUG_PRINT("median :%d \n", median);
-
-    while(current_node)
-    {
-		//DEBUG_PRINT("current_node->index  :%d \n", current_node->index );
-
-		if(current_node->index < median)
-        	current_node->above_median = true;
-        else
+	median = get_median(*stack);
+	current_node = *stack;
+	while (current_node)
+	{
+		// DEBUG_PRINT("current_node->index  :%d \n", current_node->index );
+		if (current_node->index < median)
+			current_node->above_median = true;
+		else
 			current_node->above_median = false;
-		
-		DEBUG_PRINT("node:%d above median :%d \n", current_node->nb, current_node->above_median);
-
+		//DEBUG_PRINT("node:%d above median :%d \n", current_node->nb,
+			//current_node->above_median);
 		current_node = current_node->next;
-    }
-		//DEBUG_PRINT("END");
-
+	}
+	// DEBUG_PRINT("END");
 }
 
-int get_cost(t_stack *node)
+int	get_cost(t_stack *node)
 {
-	int cost_a;
-	int cost_b;
-	int cost;
+	int	cost_a;
+	int	cost_b;
+	int	cost;
 
 	cost = 1;
-	if(node->above_median)
+	if (node->above_median)
 		cost_a = node->index;
 	else
 		cost_a = node->size - node->index;
-	
-	if(node->target_node->above_median)
+	if (node->target_node->above_median)
 		cost_b = node->target_node->index;
 	else
 		cost_b = node->target_node->size - node->target_node->index;
-
-	if((node->target_node->above_median && !node->above_median)
-		|| !(node->target_node->above_median && node->above_median) )
+	if ((node->target_node->above_median && !node->above_median)
+		|| !(node->target_node->above_median && node->above_median))
 		cost += cost_a + cost_b;
 	else
-		cost += ft_max(cost_a,cost_b);
-	
-	return(cost);
-
+		cost += ft_max(cost_a, cost_b);
+	return (cost);
 }
 
 void	update_cost(t_stack **a, t_stack **b)
 {
-	t_stack *current_node;
-	
+	t_stack	*current_node;
+
 	update_index(a);
 	update_index(b);
 	update_median(a);
@@ -144,15 +135,30 @@ void	update_cost(t_stack **a, t_stack **b)
 	update_stack_size(a);
 	update_stack_size(b);
 	current_node = *a;
-	while(current_node)
+	while (current_node)
 	{
 		current_node->cost = get_cost(current_node);
-		DEBUG_PRINT("node:%d cost:%d target:%d\n", current_node->nb , current_node->cost, current_node->target_node->nb);
+		//DEBUG_PRINT("node:%d cost:%d target:%d\n", current_node->nb,current_node->cost, current_node->target_node->nb);
 		current_node = current_node->next;
 	}
 }
 
-// t_stack get_cheapest(t_stack stack)
-// {
+t_stack	*get_cheapest(t_stack *stack)
+{
+	int		cheapest;
+	t_stack	*cheapest_node;
 
-// }
+	cheapest = stack->cost;
+	cheapest_node = stack;
+	while (stack)
+	{
+		//DEBUG_PRINT("stack->cost:%d cheapest:%d\n", stack->cost, cheapest);
+		if (stack->cost < cheapest)
+		{
+			cheapest = stack->cost;
+			cheapest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (cheapest_node);
+}

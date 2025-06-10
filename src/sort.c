@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 12:28:57 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/10 14:55:17 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 16:24:25 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	sort_three(t_stack **stack)
 {
-	t_stack *max_node;
-	t_stack *min_node;
+	t_stack	*max_node;
+	t_stack	*min_node;
+
 	if (!stack)
 		return ;
 	max_node = get_max_node(*stack);
@@ -28,36 +29,35 @@ void	sort_three(t_stack **stack)
 		sa(stack);
 }
 
-/* 
+/*
 On va jusau a : i<stack_size-5
 		-3 pour les tris dernier de 3
 		-2 pour les 2 deja push
 */
-void sort_turk(t_stack **a, t_stack **b, int stack_size)
+void	sort_turk(t_stack **a, t_stack **b, int stack_size)
 {
 	int i;
+	t_stack *cheapest_node;
 
 	i = 0;
-	DEBUG_PRINT("stack_size: %d\n", stack_size);
 
-	while(i<(stack_size-5))
+	while (i < (stack_size - 5))
 	{
-		DEBUG_PRINT("i: %d, stack_size: %d\n", i, stack_size-5);
-		
 		DEBUG_PRINT(" --------- A after ------- \n");
 		show_nodes(*a);
-		DEBUG_PRINT(" --------------------- \n");
 
 		DEBUG_PRINT(" --------- B after ------- \n");
 		show_nodes(*b);
-		DEBUG_PRINT(" --------------------- \n");
 
-		set_target(a,b);
-		update_cost(a,b);
+		set_target(a, b);
+		update_cost(a, b);
+		cheapest_node = get_cheapest(*a);
 
-		pb(a,b);
-		
+		DEBUG_PRINT("after\n");
+		DEBUG_PRINT("cheapest_node: %d\n", cheapest_node->nb);
+
+		pb(a, b);
+
 		i++;
-		
 	}
 }

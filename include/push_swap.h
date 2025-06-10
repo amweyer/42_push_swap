@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/10 15:31:28 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/10 15:59:44 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,11 @@ void sort_turk(t_stack **a, t_stack **b, int stack_size);
 void	get_closest(t_stack *node, t_stack **stack);
 void	set_target(t_stack **a, t_stack **b);
 void	update_index(t_stack **stack);
-int get_median(t_stack *stack);
-// void update_median(t_stack **stack);
+int 	get_median(t_stack *stack);
+void update_median(t_stack **stack);
 void set_cost(t_stack **node);
 void update_cost(t_stack **a, t_stack **b);
+t_stack *get_cheapest(t_stack *stack);
 
 
 
