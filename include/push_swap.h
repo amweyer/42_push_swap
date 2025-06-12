@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/10 15:59:44 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/12 15:35:04 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ void update_median(t_stack **stack);
 void set_cost(t_stack **node);
 void update_cost(t_stack **a, t_stack **b);
 t_stack *get_cheapest(t_stack *stack);
+void move(t_stack **a, t_stack **b);
+
 
 
 

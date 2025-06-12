@@ -6,28 +6,49 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:43:55 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/08 18:38:59 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:13:31 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// void	rrotate(t_stack **head)
+// {
+// 	t_stack	*tmp;
+// 	t_stack	*current;
+
+// 	if (!head || !*head || !(*head)->next)
+// 		return ;
+// 	current = *head;
+// 	while (current->next)
+// 		current = current->next;
+// 	tmp = current;
+// 	current->prev->next = NULL;
+// 	(*head)->prev = tmp;
+// 	tmp->next = (*head);
+// 	tmp->prev = NULL;
+// 	*head = tmp;
+// }
+
 void	rrotate(t_stack **head)
 {
-	t_stack	*tmp;
-	t_stack	*current;
+	t_stack	*last;
+	t_stack *before_last;
 
 	if (!head || !*head || !(*head)->next)
 		return ;
-	current = *head;
-	while (current->next)
-		current = current->next;
-	tmp = current;
-	current->prev->next = NULL;
-	(*head)->prev = tmp;
-	tmp->next = (*head);
-	tmp->prev = NULL;
-	*head = tmp;
+	last = *head;
+	while (last->next)
+		last = last->next;
+	before_last = last->prev;
+	if(before_last)
+		before_last->next = NULL;
+	last->prev = NULL;
+	last->next = (*head);
+	(*head)->prev= last;
+	*head= last;
+	DEBUG_PRINT("rrotate\n");
+
 }
 
 void	rra(t_stack **a)

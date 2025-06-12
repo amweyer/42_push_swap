@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_push.c                                          :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 10:54:40 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/23 15:26:53 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:20:43 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	push(t_stack **head_src, t_stack **head_dst)
 	if (*head_src)
 		(*head_src)->prev = NULL;
 	tmp->next = *head_dst;
+	if(*head_dst)
+		(*head_dst)->prev = tmp;
 	tmp->prev = NULL;
 	*head_dst = tmp;
 }

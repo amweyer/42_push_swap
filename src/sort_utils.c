@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/10 16:23:30 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/12 16:10:59 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,4 +161,81 @@ t_stack	*get_cheapest(t_stack *stack)
 		stack = stack->next;
 	}
 	return (cheapest_node);
+}
+
+void move(t_stack **a, t_stack **b)
+{
+	t_stack *cheapest_node;
+	int index_b;
+	int index_a;
+
+	
+	cheapest_node = get_cheapest(*a);
+	index_a = cheapest_node->index;
+	index_b = cheapest_node->target_node->index;
+
+	DEBUG_PRINT("cheapest_node: %d\n", cheapest_node->nb);
+
+	if(cheapest_node->above_median)
+	{
+		DEBUG_PRINT("target noed: %d index: %d\n", cheapest_node->target_node->nb, cheapest_node->target_node->index);
+
+		if(!cheapest_node->target_node->above_median)
+		{
+			DEBUG_PRINT("Entre if\n");
+			
+			while(index_b)
+			{
+				DEBUG_PRINT("index: %d\n", index_b);
+				rrb(b);
+				DEBUG_PRINT("after rrb");
+
+				index_b--;
+			}
+		}
+		while(index_a && index_b)
+		{
+			rr(a,b);
+			index_a--;
+			index_b--;
+		}
+		while(index_a)
+		{
+			ra(a);
+			index_a--;
+		}
+		while(index_b)
+		{
+			rb(b);
+			index_b--;
+		}
+	}
+	else
+	{
+		if(cheapest_node->target_node->above_median)
+		{
+			while(index_b)
+			{
+				rb(b);
+				index_b--;
+			}
+		}
+		while(index_a && index_b)
+		{
+			rrr(a,b);
+			index_a--;
+			index_b--;
+		}
+		while(index_a)
+		{
+			rra(a);
+			index_a--;
+		}
+		while(index_b)
+		{
+			rrb(b);
+			index_b--;
+		}
+	}
+	pb(a, b);
 }
