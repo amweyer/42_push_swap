@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:43:55 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/12 17:13:31 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/12 19:12:21 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	rrotate(t_stack **head)
 	last->next = (*head);
 	(*head)->prev= last;
 	*head= last;
-	DEBUG_PRINT("rrotate\n");
 
 }
 

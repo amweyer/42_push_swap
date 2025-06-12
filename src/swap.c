@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_swap.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:17:25 by amweyer           #+#    #+#             */
-/*   Updated: 2025/05/23 15:26:27 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/12 18:32:20 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap(t_stack **head)
 	t_stack	*second;
 	t_stack	*third;
 
-	if (!head || !*head || !(*head)->next)
+	if (!head || !*head || !(*head)->next) 
 		return ;
 	first = *head;
 	second = first->next;

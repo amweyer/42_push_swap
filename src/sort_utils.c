@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/12 16:10:59 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/12 19:36:35 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ int	get_median(t_stack *stack)
 		i++;
 		stack = stack->next;
 	}
-	return (i / 2);
+	//DEBUG_PRINT("get_stack_size(stack): %d\n", stack->size);
+	if(i%2==1)
+		return(i/2+1);
+	return (i/2);
 }
 
 void	update_median(t_stack **stack)
@@ -86,16 +89,17 @@ void	update_median(t_stack **stack)
 	int		median;
 
 	median = get_median(*stack);
+	// DEBUG_PRINT("median:%d", median);
+
 	current_node = *stack;
 	while (current_node)
 	{
 		// DEBUG_PRINT("current_node->index  :%d \n", current_node->index );
 		if (current_node->index < median)
-			current_node->above_median = true;
-		else
 			current_node->above_median = false;
-		//DEBUG_PRINT("node:%d above median :%d \n", current_node->nb,
-			//current_node->above_median);
+		else
+			current_node->above_median = true;
+		// DEBUG_PRINT("node:%d above median :%d \n", current_node->nb, current_node->above_median);
 		current_node = current_node->next;
 	}
 	// DEBUG_PRINT("END");
@@ -108,14 +112,17 @@ int	get_cost(t_stack *node)
 	int	cost;
 
 	cost = 1;
-	if (node->above_median)
+	if (!node->above_median)
 		cost_a = node->index;
 	else
 		cost_a = node->size - node->index;
-	if (node->target_node->above_median)
+	if (!node->target_node->above_median)
 		cost_b = node->target_node->index;
 	else
 		cost_b = node->target_node->size - node->target_node->index;
+
+	DEBUG_PRINT(" cost a: %d, target: %d, ndex: %d, cost b: %d\n", cost_a, node->target_node->nb, node->target_node->index,cost_b);
+
 	if ((node->target_node->above_median && !node->above_median)
 		|| !(node->target_node->above_median && node->above_median))
 		cost += cost_a + cost_b;
@@ -138,7 +145,7 @@ void	update_cost(t_stack **a, t_stack **b)
 	while (current_node)
 	{
 		current_node->cost = get_cost(current_node);
-		//DEBUG_PRINT("node:%d cost:%d target:%d\n", current_node->nb,current_node->cost, current_node->target_node->nb);
+		DEBUG_PRINT("node:%d, index: %d, cost:%d, target:%d\n", current_node->nb, current_node->index, current_node->cost, current_node->target_node->nb);
 		current_node = current_node->next;
 	}
 }
@@ -176,11 +183,11 @@ void move(t_stack **a, t_stack **b)
 
 	DEBUG_PRINT("cheapest_node: %d\n", cheapest_node->nb);
 
-	if(cheapest_node->above_median)
+	if(!cheapest_node->above_median)
 	{
 		DEBUG_PRINT("target noed: %d index: %d\n", cheapest_node->target_node->nb, cheapest_node->target_node->index);
 
-		if(!cheapest_node->target_node->above_median)
+		if(cheapest_node->target_node->above_median)
 		{
 			DEBUG_PRINT("Entre if\n");
 			
@@ -212,7 +219,14 @@ void move(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		if(cheapest_node->target_node->above_median)
+		DEBUG_PRINT("nb b: %d", cheapest_node->nb);
+
+		DEBUG_PRINT("index b: %d", index_b);
+		index_b = cheapest_node->size - index_b + 1;
+		DEBUG_PRINT("size b: %d", cheapest_node->size);
+		DEBUG_PRINT("index b: %d", index_b);
+
+		if(!cheapest_node->target_node->above_median)
 		{
 			while(index_b)
 			{
@@ -220,6 +234,8 @@ void move(t_stack **a, t_stack **b)
 				index_b--;
 			}
 		}
+		else
+			index_a = cheapest_node->size - index_a;
 		while(index_a && index_b)
 		{
 			rrr(a,b);
