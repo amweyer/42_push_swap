@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/12 17:21:00 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:28:50 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ int	main(int ac, char **av)
     }
 
     sort_three(&a);
+	
+	DEBUG_PRINT(" --------- STARTING SORT BACK ------- \n");
 
+	sort_back(&a,&b);
 	// DEBUG_PRINT("max nb node : %d\n" , get_max_node(a)->nb);
 	// DEBUG_PRINT("max nb node : %d\n" , get_min_node(a)->nb);
     

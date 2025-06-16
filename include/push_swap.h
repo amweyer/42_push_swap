@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/16 18:02:29 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:24:45 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ t_stack				*get_min_node(t_stack *stack);
 /* sort.c */
 void	sort_three(t_stack **stack);
 void sort_turk(t_stack **a, t_stack **b, int stack_size);
+void sort_back(t_stack **a, t_stack **b);
 
 /* sort_utils.c */
 void	get_closest(t_stack *node, t_stack **stack);

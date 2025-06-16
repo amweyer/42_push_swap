@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 12:28:57 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/12 17:22:06 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:32:40 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,41 @@ void	sort_turk(t_stack **a, t_stack **b, int stack_size)
 
 		update_cost(a, b);
 		DEBUG_PRINT(" Cost updated.. \n");
-
-
-		// rrb(b);
-		// DEBUG_PRINT(" RRB TEST updated.. \n");
-
+		
 		move(a,b);
 		DEBUG_PRINT(" Moves done.. \n");
+		i++;
+	}
+	
+}
 
+
+void	sort_back(t_stack **a, t_stack **b)
+{
+	int i;
+	int size_b;
+
+	i = 0;
+	size_b = get_stack_size(*b);
+
+	while (i < size_b)
+	{
+		DEBUG_PRINT(" --------- A after ------- \n");
+		show_nodes(*a);
+
+		DEBUG_PRINT(" --------- B after ------- \n");
+		show_nodes(*b);
+
+		DEBUG_PRINT(" Before Target set.. \n");
+
+		set_target(b, a);
+		DEBUG_PRINT(" Target set.. \n");
+
+		update_cost(b, a);
+		DEBUG_PRINT(" Cost updated.. \n");
 		
-
-		DEBUG_PRINT("after\n");
-
-
+		move(b,a);
+		DEBUG_PRINT(" Moves done.. \n");
 		i++;
 	}
 }
