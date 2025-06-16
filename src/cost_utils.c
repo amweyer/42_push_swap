@@ -6,18 +6,15 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 13:21:28 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/13 13:22:16 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 15:58:36 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int optimze_cost(t_stack **node)
-{
-	
-}
 
-int	get_cost(t_stack **node)
+
+int	get_cost(t_stack *node)
 {
 	int	cost_a;
 	int	cost_b;
@@ -43,10 +40,6 @@ int	get_cost(t_stack **node)
 	return (cost);
 }
 
-void update_cost(t_stack **node)
-{
-	
-}
 
 void	update_cost(t_stack **a, t_stack **b)
 {
@@ -76,7 +69,6 @@ t_stack	*get_cheapest(t_stack *stack)
 	cheapest_node = stack;
 	while (stack)
 	{
-		//DEBUG_PRINT("stack->cost:%d cheapest:%d\n", stack->cost, cheapest);
 		if (stack->cost < cheapest)
 		{
 			cheapest = stack->cost;

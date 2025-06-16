@@ -6,7 +6,7 @@
 #    By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 15:01:22 by amweyer           #+#    #+#              #
-#    Updated: 2025/06/08 18:39:12 by amweyer          ###   ########.fr        #
+#    Updated: 2025/06/16 12:02:44 by amweyer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,9 @@ SRC =  $(SRC_DIR)/main.c \
        $(SRC_DIR)/sort.c   \
        $(SRC_DIR)/stack_utils.c   \
        $(SRC_DIR)/sort_utils.c   \
+       $(SRC_DIR)/move_utils.c   \
+       $(SRC_DIR)/cost_utils.c   \
+	   
 
 
 

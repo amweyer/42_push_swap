@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/13 13:01:41 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:02:29 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 	} while (0)
 # endif
 
+
+
 typedef struct s_stack
 {
 	int				nb;
@@ -49,17 +51,7 @@ typedef struct s_stack
 }					t_stack;
 
 
-typedef struct s_moves
-{
-	int ra;
-	int rra;
-	int rb;
-	int rrb;
-	int rr;
-	int rrr;
-	int pa;
-	int pb;
-}			t_moves;
+
 
 void				swap(t_stack **head);
 void				sa(t_stack **a);
@@ -124,6 +116,10 @@ t_stack *get_cheapest(t_stack *stack);
 /* move_tuils.c */
 
 void move(t_stack **a, t_stack **b);
+void	rotate_both(t_stack *cheapest, t_stack *target, t_stack **a, t_stack **b);
+void	rev_rotate_both(t_stack *cheapest, t_stack *target, t_stack **a, t_stack **b);
+void	move_up(t_stack *node, t_stack **stack, char c);
+
 
 
 

@@ -6,95 +6,108 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 12:52:23 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/13 12:54:37 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:05:23 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void move(t_stack **a, t_stack **b)
+void	move(t_stack **a, t_stack **b)
 {
-    int index_b;
-	int index_a;
+	t_stack	*cheapest;
+	t_stack	*target;
 
-	t_stack *cheapest_node;
-
-	
-	cheapest_node = get_cheapest(*a);
-	index_a = cheapest_node->index;
-	index_b = cheapest_node->target_node->index;
-
-	DEBUG_PRINT("cheapest_node: %d\n", cheapest_node->nb);
-
-	if(!cheapest_node->above_median)
-	{
-		DEBUG_PRINT("target noed: %d index: %d\n", cheapest_node->target_node->nb, cheapest_node->target_node->index);
-
-		if(cheapest_node->target_node->above_median)
-		{
-			DEBUG_PRINT("Entre if\n");
-			
-			while(index_b)
-			{
-				DEBUG_PRINT("index: %d\n", index_b);
-				rrb(b);
-				DEBUG_PRINT("after rrb");
-
-				index_b--;
-			}
-		}
-		while(index_a && index_b)
-		{
-			rr(a,b);
-			index_a--;
-			index_b--;
-		}
-		while(index_a)
-		{
-			ra(a);
-			index_a--;
-		}
-		while(index_b)
-		{
-			rb(b);
-			index_b--;
-		}
-	}
+	cheapest = get_cheapest(*a);
+	target = cheapest->target_node;
+	DEBUG_PRINT("cheapest_node: %d\n", cheapest->nb);
+	if (!cheapest || !target)
+		return ;
+	if (cheapest->above_median && target->above_median)
+		rotate_both(cheapest, target, a, b);
+	else if (!cheapest->above_median && !target->above_median)
+		rev_rotate_both(cheapest, target, a, b);
 	else
 	{
-		DEBUG_PRINT("nb b: %d", cheapest_node->nb);
-
-		DEBUG_PRINT("index b: %d", index_b);
-		index_b = cheapest_node->size - index_b + 1;
-		DEBUG_PRINT("size b: %d", cheapest_node->size);
-		DEBUG_PRINT("index b: %d", index_b);
-
-		if(!cheapest_node->target_node->above_median)
-		{
-			while(index_b)
-			{
-				rb(b);
-				index_b--;
-			}
-		}
-		else
-			index_a = cheapest_node->size - index_a;
-		while(index_a && index_b)
-		{
-			rrr(a,b);
-			index_a--;
-			index_b--;
-		}
-		while(index_a)
-		{
-			rra(a);
-			index_a--;
-		}
-		while(index_b)
-		{
-			rrb(b);
-			index_b--;
-		}
+		move_up(cheapest, a, 'a');
+		move_up(target, b, 'b');
 	}
 	pb(a, b);
+}
+
+void	rotate_both(t_stack *cheapest, t_stack *target, t_stack **a,
+		t_stack **b)
+{
+	int	move_a;
+	int	move_b;
+
+	move_a = cheapest->index;
+	move_b = target->index;
+	while (move_a && move_b)
+	{
+		rr(a, b);
+		move_a--;
+		move_b--;
+	}
+	while (move_a)
+	{
+		ra(a);
+		move_a--;
+	}
+	while (move_b)
+	{
+		rb(b);
+		move_b--;
+	}
+}
+
+void	rev_rotate_both(t_stack *cheapest, t_stack *target, t_stack **a,
+		t_stack **b)
+{
+	int	move_a;
+	int	move_b;
+
+	move_a = cheapest->size - cheapest->index;
+	move_b = target->size - target->index;
+	while (move_a && move_b)
+	{
+		rrr(a, b);
+		move_a--;
+		move_b--;
+	}
+	while (move_a)
+	{
+		rra(a);
+		move_a--;
+	}
+	while (move_b)
+	{
+		rrb(b);
+		move_b--;
+	}
+}
+
+void	move_up(t_stack *node, t_stack **stack, char c)
+{
+	int	move;
+
+	move = !node->above_median ? node->index : (node->size - node->index);
+	while (move)
+	{
+		if (!node->above_median)
+		{
+			if (c == 'a')
+				ra(stack);
+			else
+				rb(stack);
+			move--;
+		}
+		else
+		{
+			if (c == 'a')
+				rra(stack);
+			else
+				rrb(stack);
+			move--;
+		}
+	}
 }
