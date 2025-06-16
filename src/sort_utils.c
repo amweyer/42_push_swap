@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/16 17:45:38 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:10:45 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ void	update_median(t_stack **stack)
 			current_node->above_median = false;
 		else
 			current_node->above_median = true;
-		DEBUG_PRINT("MEDIAN : node:%d above median :%d \n", current_node->nb, current_node->above_median);
 		current_node = current_node->next;
 	}
 	// DEBUG_PRINT("END");

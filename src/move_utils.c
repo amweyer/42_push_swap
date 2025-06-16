@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 12:52:23 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/16 18:05:23 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:14:17 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void	move(t_stack **a, t_stack **b)
 	cheapest = get_cheapest(*a);
 	target = cheapest->target_node;
 	DEBUG_PRINT("cheapest_node: %d\n", cheapest->nb);
+	DEBUG_PRINT("cheapest_cost: %d\n", cheapest->cost);
+
 	if (!cheapest || !target)
 		return ;
 	if (cheapest->above_median && target->above_median)
-		rotate_both(cheapest, target, a, b);
-	else if (!cheapest->above_median && !target->above_median)
 		rev_rotate_both(cheapest, target, a, b);
+	else if (cheapest->above_median && target->above_median)
+		rotate_both(cheapest, target, a, b);
 	else
 	{
 		move_up(cheapest, a, 'a');

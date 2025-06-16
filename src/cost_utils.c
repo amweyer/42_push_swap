@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 13:21:28 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/16 15:58:36 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:15:02 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	get_cost(t_stack *node)
 	else
 		cost_b = node->target_node->size - node->target_node->index;
 
-	DEBUG_PRINT(" cost a: %d, target: %d, ndex: %d, cost b: %d\n", cost_a, node->target_node->nb, node->target_node->index,cost_b);
+	//DEBUG_PRINT(" cost a: %d, target: %d, ndex: %d, cost b: %d\n", cost_a, node->target_node->nb, node->target_node->index,cost_b);
 
 	if ((node->target_node->above_median && !node->above_median)
 		|| !(node->target_node->above_median && node->above_median))
@@ -55,7 +55,7 @@ void	update_cost(t_stack **a, t_stack **b)
 	while (current_node)
 	{
 		current_node->cost = get_cost(current_node);
-		DEBUG_PRINT("node:%d, index: %d, cost:%d, target:%d\n", current_node->nb, current_node->index, current_node->cost, current_node->target_node->nb);
+		//DEBUG_PRINT("node:%d, index: %d, cost:%d, target:%d\n", current_node->nb, current_node->index, current_node->cost, current_node->target_node->nb);
 		current_node = current_node->next;
 	}
 }
