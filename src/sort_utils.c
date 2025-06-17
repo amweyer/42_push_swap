@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 18:38:07 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/16 18:10:45 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/17 11:35:36 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	set_target(t_stack **a, t_stack **b)
 	while (current_node)
 	{
 		get_closest(current_node, b);
-		// DEBUG_PRINT("node:%d target :%d \n", current_node->nb,
-			//current_node->target_node->nb);
 		current_node = current_node->next;
 	}
 }
@@ -77,10 +75,9 @@ int	get_median(t_stack *stack)
 		i++;
 		stack = stack->next;
 	}
-	//DEBUG_PRINT("get_stack_size(stack): %d\n", stack->size);
-	if(i%2==1)
-		return(i/2+1);
-	return (i/2);
+	if (i % 2 == 1)
+		return (i / 2 + 1);
+	return (i / 2);
 }
 
 void	update_median(t_stack **stack)
@@ -89,8 +86,6 @@ void	update_median(t_stack **stack)
 	int		median;
 
 	median = get_median(*stack);
-	// DEBUG_PRINT("median:%d", median);
-
 	current_node = *stack;
 	while (current_node)
 	{
@@ -103,4 +98,3 @@ void	update_median(t_stack **stack)
 	}
 	// DEBUG_PRINT("END");
 }
-

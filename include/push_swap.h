@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/16 18:24:45 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/17 11:38:00 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ t_stack				*get_min_node(t_stack *stack);
 void	sort_three(t_stack **stack);
 void sort_turk(t_stack **a, t_stack **b, int stack_size);
 void sort_back(t_stack **a, t_stack **b);
+void sort_min_on_top(t_stack **a);
+
 
 /* sort_utils.c */
 void	get_closest(t_stack *node, t_stack **stack);
@@ -115,13 +117,13 @@ t_stack *get_cheapest(t_stack *stack);
 
 
 /* move_tuils.c */
-
 void move(t_stack **a, t_stack **b);
 void	rotate_both(t_stack *cheapest, t_stack *target, t_stack **a, t_stack **b);
 void	rev_rotate_both(t_stack *cheapest, t_stack *target, t_stack **a, t_stack **b);
 void	move_up(t_stack *node, t_stack **stack, char c);
 
-
-
+/* set_target_back.c */
+void	get_closest_bigger(t_stack *node, t_stack **stack);
+void	set_target_back(t_stack **a, t_stack **b);
 
 #endif

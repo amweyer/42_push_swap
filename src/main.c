@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 11:54:06 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/16 18:28:50 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/17 11:42:26 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,18 @@ int	main(int ac, char **av)
 	DEBUG_PRINT(" --------- STARTING SORT BACK ------- \n");
 
 	sort_back(&a,&b);
+
+	DEBUG_PRINT(" --------- A after ------- \n");
+	show_nodes(a);
+	DEBUG_PRINT(" --------------------- \n");
+
+	DEBUG_PRINT(" --------- B after ------- \n");
+	show_nodes(b);
+	DEBUG_PRINT(" --------------------- \n");
+	
+	DEBUG_PRINT(" --------- MIN ON TOP ------- \n");
+
+	sort_min_on_top(&a);
 	// DEBUG_PRINT("max nb node : %d\n" , get_max_node(a)->nb);
 	// DEBUG_PRINT("max nb node : %d\n" , get_min_node(a)->nb);
     
@@ -74,57 +86,12 @@ int	main(int ac, char **av)
 	show_nodes(b);
 	DEBUG_PRINT(" --------------------- \n");
 	
+	
 	//DEBUG_PRINT("stack_size: %d\n", stack_size);
 
 	DEBUG_PRINT(" --------- FINISH ------- \n");
 
-	// definir les target node pour chaque node
-	// get the cost of each node to get to the target node
-	// find the cheapest node
+	
 
 	return (0);
 }
-
-// void	print_stack(t_stack *head)
-// {
-// 	while (head)
-// 	{
-// 		printf("%d ", head->nb);
-// 		head = head->next;
-// 	}
-// 	printf("\n");
-// }
-// int	main(void)
-// {
-// 	t_stack *a = malloc(sizeof(t_stack));
-// 	t_stack *b = malloc(sizeof(t_stack));
-// 	//t_stack *c = malloc(sizeof(t_stack));
-
-// 	a->nb = 1;
-// 	b->nb = 2;
-// 	// c->nb = 3;
-
-// 	a->prev = NULL;
-// 	a->next = b;
-// 	b->prev = a;
-// 	b->next = NULL;
-// 	// c->prev = b;
-// 	// c->next = ;
-
-// 	t_stack *head = a;
-
-// 	printf("Avant rrotate:\n");
-// 	print_stack(head);
-
-// 	rrotate(&head);
-
-// 	printf("Après rrotate:\n");
-// 	print_stack(head);
-
-// 	// Libération mémoire
-// 	free(a);
-// 	free(b);
-// 	// free(c);
-
-// 	return 0;
-// }

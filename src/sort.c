@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 12:28:57 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/16 18:32:40 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/17 11:36:47 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,32 @@ void	sort_back(t_stack **a, t_stack **b)
 
 		DEBUG_PRINT(" Before Target set.. \n");
 
-		set_target(b, a);
+		set_target_back(b, a);
 		DEBUG_PRINT(" Target set.. \n");
 
 		update_cost(b, a);
 		DEBUG_PRINT(" Cost updated.. \n");
 		
 		move(b,a);
+		
 		DEBUG_PRINT(" Moves done.. \n");
 		i++;
 	}
+}
+
+
+void sort_min_on_top(t_stack **a)
+{
+	t_stack *min_node;
+
+	min_node = get_min_node(*a);
+	update_median(a);
+	while(min_node->prev)
+	{
+		if(min_node->above_median)
+			rra(a);
+		else
+			ra(a);
+	}
+	
 }
