@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:59:14 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/08 12:56:37 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/17 14:41:22 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_error_synthax(char *arg)
 	int	i;
 
 	i = 0;
-	if (arg[i] == '+' || arg[i] == '-')
+	if ((arg[i] == '+' || arg[i] == '-') && arg[i+1])
 		i++;
 	while (arg[i])
 	{
@@ -31,11 +31,11 @@ int	check_error_synthax(char *arg)
 int	check_is_int(char *arg)
 {
 	long	n;
+	int error;
 
-	n = ft_atol(arg);
-	if (n < INT_MIN || n > INT_MAX)
-		return (1);
-	return (0);
+	error = 0;
+	n = ft_atol(arg, &error);
+	return (error == 1);
 }
 
 int	check_error_duplicates(t_stack **a, char *arg)

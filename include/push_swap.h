@@ -6,7 +6,7 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 18:12:05 by amweyer           #+#    #+#             */
-/*   Updated: 2025/06/17 11:38:00 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/17 12:30:15 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define INT_MAX 2147483647
 
 /* debug macro */
-# define DEBUG 1
+# define DEBUG 0
 
 # if DEBUG == 1
 #  define DEBUG_PRINT(fmt, ...) ft_printf("[DEBUG] %s:%d: " fmt "\n", __FILE__,__LINE__, ##__VA_ARGS__)
@@ -35,8 +35,6 @@
 	{                         \
 	} while (0)
 # endif
-
-
 
 typedef struct s_stack
 {
@@ -87,7 +85,7 @@ void				free_stack(t_stack **stack);
 void				free_errors(t_stack **a);
 
 /* utils.c */
-long				ft_atol(char *arg);
+long				ft_atol(char *arg, int *error);
 int 				ft_max(int a, int b);
 int 				ft_min(int a, int b);
 

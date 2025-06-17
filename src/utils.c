@@ -6,13 +6,13 @@
 /*   By: amweyer <amweyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 11:25:41 by amayaweyer        #+#    #+#             */
-/*   Updated: 2025/06/10 15:22:11 by amweyer          ###   ########.fr       */
+/*   Updated: 2025/06/17 12:15:33 by amweyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol(char *arg)
+long	ft_atol(char *arg, int *error)
 {
 	int		i;
 	long	nb;
@@ -33,6 +33,8 @@ long	ft_atol(char *arg)
 	{
 		nb = nb * 10 + (arg[i] - '0');
 		i++;
+		if(nb < INT_MIN || nb > INT_MAX)
+			*error = 1;
 	}
 	return (nb * neg);
 }
