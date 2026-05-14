@@ -88,7 +88,3 @@ make re     # fclean + make
 - [Turkish Algorithm explained — medium.com](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 - [Sorting algorithm complexity — bigocheatsheet.com](https://www.bigocheatsheet.com/)
 - [Visualizer for push_swap](https://github.com/o-reo/push_swap_visualizer)
-
-### AI usage
-
-Claude (claude.ai) was used to generate this README. No implementation code was written or requested from AI — the algorithm, cost function, and all source files were designed and coded independently.
